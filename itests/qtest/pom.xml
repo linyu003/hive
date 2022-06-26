@@ -440,7 +440,7 @@
                 <phase>generate-sources</phase>
                 <configuration>
                   <target>
-                    <exec executable="bash" failonerror="true">
+                    <exec executable="C:\Program Files\Git\bin/bash" failonerror="true">
                       <arg value="${basedir}/../bin/generate-cli-splits.sh"/>
                       <arg value="src/test/java"/>
                       <arg value="target/generated-test-sources"/>

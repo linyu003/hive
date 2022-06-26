@@ -511,7 +511,7 @@
             </goals>
             <configuration>
               <target>
-                <exec executable="bash" dir="${basedir}" failonerror="true">
+                <exec executable="C:\Program Files\Git\bin/bash" dir="${basedir}" failonerror="true">
                   <arg line="${hive.path.to.root}/itests/bin/validateTestConfiguration.sh"/>
                   <arg line="${hive.path.to.root}"/>
                 </exec>

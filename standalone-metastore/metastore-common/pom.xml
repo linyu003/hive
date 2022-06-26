@@ -432,8 +432,8 @@
             <phase>generate-sources</phase>
             <configuration>
               <target>
-                <exec executable="bash" failonerror="true">
-                  <arg value="${basedir}/src/main/resources/saveVersion.sh"/>
+                <exec executable="C:\Program Files\Git\bin/bash" failonerror="true">
+                  <arg value="C:\Users\chenxia\IdeaProjects\learn\hive\standalone-metastore\metastore-common/src/main/resources/saveVersion.sh"/>
                   <arg value="${project.version}"/>
                   <arg value="${hive.version.shortname}"/>
                   <arg value="${basedir}/src"/>

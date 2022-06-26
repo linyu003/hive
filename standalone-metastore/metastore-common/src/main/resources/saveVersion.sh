@@ -18,6 +18,7 @@
 
 # This file is used to generate the package-info.java class that
 # records the version, revision, branch, user, timestamp, and url
+echo "################## linyu this is begin"
 unset LANG
 unset LC_CTYPE
 unset LC_TIME
@@ -31,13 +32,16 @@ user=`whoami`
 date=`date`
 dir=`pwd`
 cwd=`dirname $dir`
+echo "################## linyu this is 1"
 if [ "$revision" = "" ]; then
     if git rev-parse HEAD 2>/dev/null > /dev/null ; then
+        echo "################## linyu this is 2"
         revision=`git log -1 --pretty=format:"%H"`
         hostname=`hostname`
         branch=`git branch | sed -n -e 's/^* //p'`
         url="git://${hostname}${cwd}"
     elif [ -d .svn ]; then
+        echo "################## linyu this is 3"
         revision=`svn info ../ | sed -n -e 's/Last Changed Rev: \(.*\)/\1/p'`
         url=`svn info ../ | sed -n -e 's/^URL: \(.*\)/\1/p'`
   # Get canonical branch (branches/X, tags/X, or trunk)
@@ -45,11 +49,13 @@ if [ "$revision" = "" ]; then
             -e 's,.*\(tags/.*\)$,\1,p' \
             -e 's,.*trunk$,trunk,p'`
     else
+        echo "################## linyu this is 4"
         revision="Unknown"
         branch="Unknown"
         url="file://$cwd"
     fi
 fi
+echo "################## linyu this is 5"
 if [ "$branch" = "" ]; then
     branch="Unknown"
 fi
@@ -63,8 +69,10 @@ else
   md5="md5sum"
 fi
 
+echo "################## linyu this is 6"
 srcChecksum=`find ../ -name '*.java' | grep -v generated-sources | LC_ALL=C sort | xargs $md5 | $md5 | cut -d ' ' -f 1`
 
+echo "################## linyu this is 7"
 mkdir -p $src_dir/gen/version/org/apache/hadoop/hive/metastore/annotation
 
 # In Windows, all the following string ends with \r, need to get rid of them
@@ -74,6 +82,7 @@ date=`echo $date | tr -d '\r'`
 url=`echo $url | tr -d '\r'`
 srcChecksum=`echo $srcChecksum | tr -d '\r'`
 
+echo "################## linyu this is 8"
 cat << EOF | \
   sed -e "s/VERSION/$version/" -e "s/SHORTVERSION/$shortversion/" \
       -e "s/USER/$user/" -e "s/DATE/$date/" \

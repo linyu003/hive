@@ -55,11 +55,23 @@ public class NoHashCodeKryoSerializer extends KryoSerializer {
       output.write(object.getBytes(), 0, object.getLength());
     }
 
+    @Override
     public HiveKey read(Kryo kryo, Input input, Class<? extends HiveKey> type) {
       int len = input.readVarInt(true);
       byte[] bytes = new byte[len];
       input.readBytes(bytes);
       return new HiveKey(bytes);
     }
+  }
+  class Child extends Father<String>{
+
+    @Override
+    public String test(Class<? extends String> clazz) {
+      return null;
+    }
+  }
+
+  abstract class Father<T>{
+    public abstract T test(Class<? extends T> clazz);
   }
 }
